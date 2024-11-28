@@ -1,9 +1,9 @@
-/**
- A
- A B
- A B C
- A B C D
- A B C D E  
+/*
+A B C D E
+A B C D
+A B C
+A B
+A
 */
 
 const readline = require("readline");
@@ -15,12 +15,12 @@ const r1 = readline.createInterface({
 
 r1.question("number:",(num) => {
 
-    for(let i=0; i<num; i++){
-        let rows = ""
-        for(let j=0; j<i; j++){
+    for(let i=0;i<num;i++){
+        let rows=""
+        for(let j=0;j<num-i;j++){
             rows += String.fromCharCode(65 + j ) + " "
         }
-        console.log(rows);
+        console.log(rows);        
     }
     r1.close()
 })
