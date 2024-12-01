@@ -1,24 +1,29 @@
-// pass by values
-function modifyValue(num){
-    num = num + 10;
-    console.log(num)
-}
-
 let myNum = 10;
-modifyValue(myNum);
+passByValue(myNum);
+console.log("After - Pass By Value: ",myNum);
+
+let myObj = {name: "Nidhi"}
+passByReference(myObj);
+console.log("After - Pass By Reference: ",myObj);
+
+let MyArray = [1,2,3]
+passByReferenceWithArray(MyArray);
+console.log("After - Pass By Reference with Array: ",MyArray);
 
 //pass by reference
-function modifyRefernece(obj){
+function passByReference(obj){
+    console.log("Before - Pass By Reference: ",obj);
     obj.name = "Alice";
-    console.log(obj);
 }
-let myObj = {name: "Nidhi"}
-modifyRefernece(myObj)
 
 //pass by reference with arrays
-function modifyArray(arr){
+function passByReferenceWithArray(arr){
+    console.log("Before - Pass By Reference with Array: ",arr);    
     arr.push(4);
-    console.log(arr)
 }
-let MyArray = [1,2,3]
-modifyArray(MyArray)
+
+// pass by values
+function passByValue(num){
+    console.log("Before - Pass By Value: ",num);    
+    num = num + 10;
+}
