@@ -33,7 +33,7 @@
 9. ## undefined:-
     `let age = undefined`
 10. ## Symbol:-
-   `const d6 = Symbol("key")`
+    `const d6 = Symbol("key")`
 11. ## objects:-
     ```
     let user = {
@@ -263,32 +263,32 @@ console.log(undefined == 0); //false
 ## Unicode in JS
 
 1. Unicode Basics
-* Unicode Characters: Each character is represented by a unique code point, written as U+ followed by a hexadecimal number (e.g., U+0041 for "A").
-* Code Units: JavaScript strings are stored as sequences of 16-bit code units (UTF-16 encoding). A single Unicode character might require one or two code units.
-* Basic Multilingual Plane (BMP): For code points from U+0000 to U+FFFF, use \uXXXX.
+* **Unicode Characters**: Each character is represented by a unique code point, written as U+ followed by a hexadecimal number (e.g., U+0041 for "A").
+* **Code Units**: JavaScript strings are stored as sequences of 16-bit code units (UTF-16 encoding). A single Unicode character might require one or two code units.
+* **Basic Multilingual Plane (BMP)**: For code points from U+0000 to U+FFFF, use \uXXXX.
 `console.log('\u0041'); // A`
-* Supplementary Plane: For code points above U+FFFF, use \u{XXXXX} (introduced in ES6).
+* **Supplementary Plane**: For code points above U+FFFF, use \u{XXXXX} (introduced in ES6).
 `console.log('\u{1F600}'); // 😀`
-* Accessing Characters
+* **Accessing Characters**
 Use charAt() or bracket notation, but they may not correctly handle characters outside the BMP.
 ```
 const str = '😀A';
 console.log(str[0]);      // Incorrectly shows part of the surrogate pair
 console.log([...str][0]); // Correctly shows 😀 
 ```
-* Length and Surrogate Pairs
+* **Length and Surrogate Pairs**
 string.length returns the number of UTF-16 code units, not the number of Unicode characters.
 ```
 const str = '😀';
 console.log(str.length); // 2 
 ```
-* Correct Iteration
+* **Correct Iteration**
 Use for...of to handle multi-code-unit characters:
 ``` 
   for (const char of '😀A') {
   console.log(char); // 😀, A}
 ```
-* unicode regular expressions
+* **unicode regular expressions**
 ```
 const regex = /./u;
 console.log(regex.test('😀')); // true
