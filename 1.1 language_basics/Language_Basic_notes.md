@@ -185,5 +185,119 @@ console.log( 'Glow' > 'Glee' );
 console.log( 'Bee' > 'Be' );
 ```
 
-* to see whether a string is greater than another,JS uses the so-called "dictionary" or "lexicographical" order.
-* 
+* to see whether a string is greater than another,JS uses the so-called "dictionary" or "lexicographical" order. In order words, strings are compared letter-by-letter.
+```
+console.log('Z' > 'A'); //true
+console.log('Glow' > 'Glee'); //true
+console.log('Bee' > 'Be'); //true
+```
+* The algorithm to compare two strings is simple:
+
+1. Compare the first character of both strings.
+2. If the first character from the first string is greater (or less) than the other string’s, then the first string is greater (or less) than the second. We’re done.
+3. Otherwise, if both strings’ first characters are the same, compare the second characters the same way.
+4. Repeat until the end of either string.
+5. If both strings end at the same length, then they are equal. Otherwise, the longer string is greater.
+
+In the first example above, the comparison 'Z' > 'A' gets to a result at the first step.
+
+The second comparison 'Glow' and 'Glee' needs more steps as strings are compared character-by-character:
+
+1. G is the same as G.
+2. l is the same as l.
+3. o is greater than e. Stop here. The first string is greater.
+
+## Comparison of different types
+```
+console.log('2' > 1); //true, string '2' becomes a number 2
+console.log('01' == 1); //true, string '01' becomes a number 1
+console.log(true == 1); //true
+console.log(false == 0); //true
+```
+
+## Strict equality
+```
+console.log(0 == false); //true
+console.log('' == false); //true
+```
+this happens because operands of different types are converted to numbers by the equality operator ==. an empty string just like false becomes a 0.
+* a strict equality operator === checks the qulaity without typw conversion.
+```
+console.log(0 === false); //false, because the types are different
+```
+* strict non-equality
+` console.log( 0 !== 1); //true `
+
+## Comparison with num and undefined
+```
+console.log(null === undefined) //false
+console.log(null == undefined) //true
+```
+* null/undefined are converted to numbers: null becomes 0, while undefined becomes NaN.
+
+## Strange result: null vs 0
+```
+console.log( null > 0 ); //false
+console.log( null == 0 ); //false
+console.log( null >= 0 ); //true
+```
+* Mathematically, that’s strange. The last result states that “null is greater than or equal to zero”, so in one of the comparisons above it must be true, but they are 
+both false.
+
+* The reason is that an equality check == and comparisons > < >= <= work differently. Comparisons convert null to a number, treating it as 0. That’s why (3) null >= 0 is
+ true and (1) null > 0 is false.
+
+* On the other hand, the equality check == for undefined and null is defined such that, without any conversions, they equal each other and don’t equal anything else. 
+That’s why (2) null == 0 is false.
+
+## incomparable undefined
+```
+console.log(undefined > 0); //false
+console.log(undefined < 0); //false
+console.log(undefined == 0); //false
+```
+
+* Comparisons (1) and (2) return false because undefined gets converted to NaN and NaN is a special numeric value which returns false for all comparisons.
+* The equality check (3) returns false because undefined only equals null, undefined, and no other value.
+
+## Unicode in JS
+
+1. Unicode Basics
+* Unicode Characters: Each character is represented by a unique code point, written as U+ followed by a hexadecimal number (e.g., U+0041 for "A").
+* Code Units: JavaScript strings are stored as sequences of 16-bit code units (UTF-16 encoding). A single Unicode character might require one or two code units.
+* Basic Multilingual Plane (BMP): For code points from U+0000 to U+FFFF, use \uXXXX.
+`console.log('\u0041'); // A`
+* Supplementary Plane: For code points above U+FFFF, use \u{XXXXX} (introduced in ES6).
+`console.log('\u{1F600}'); // 😀`
+* Accessing Characters
+Use charAt() or bracket notation, but they may not correctly handle characters outside the BMP.
+```
+const str = '😀A';
+console.log(str[0]);      // Incorrectly shows part of the surrogate pair
+console.log([...str][0]); // Correctly shows 😀 
+```
+* Length and Surrogate Pairs
+string.length returns the number of UTF-16 code units, not the number of Unicode characters.
+```
+const str = '😀';
+console.log(str.length); // 2 
+```
+* Correct Iteration
+Use for...of to handle multi-code-unit characters:
+``` 
+  for (const char of '😀A') {
+  console.log(char); // 😀, A}
+```
+* unicode regular expressions
+```
+const regex = /./u;
+console.log(regex.test('😀')); // true
+```
+Use the Unicode flag u to work with Unicode characters properly.
+
+Introduced in ES2018, the \p{} syntax allows matching Unicode character properties:
+```
+const regex = /\p{Emoji}/u;
+console.log(regex.test('😀')); // true
+```
+
