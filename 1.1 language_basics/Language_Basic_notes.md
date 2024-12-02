@@ -1,4 +1,195 @@
+# OOPS (Object- Oriented Programming) in Javascript
+1. Objects
+```
+const person = {
+    firstname: "ABC",
+    lastname: "DEF",
+    greet(){
+        console.log(`Hello, ${this.firstname} ${this.lastname}`);
+    }
+};
+person.greet(); //output: Hello, ABC DEF
+```
 
+2. Classes
+```
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+
+    greet() {
+        console.log(`Hello, ${this.name}`);
+    }
+}
+
+const person1 = new Person("ABC");
+person1.greet();// output: Hello, ABC
+```
+
+3. Principles of oop in Javascript:
+**Encapsulation** means bundling data(properties) and methods(functions) together within an object.
+Use Private fields (introduced in ES2021) or clousres to restrict access to object properties.
+```
+class BankAccount {
+  #balance; // Private field
+
+  constructor(balance) {
+    this.#balance = balance;
+  }
+
+  deposit(amount) {
+    this.#balance += amount;
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const account = new BankAccount(100);
+account.deposit(50);
+console.log(account.getBalance()); // Output: 150
+// console.log(account.#balance); // Error: Private field
+```
+
+**Inhertance** allows 1 class(child) to acquire propeties and methods from another class(parent)
+```
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog("Rover");
+dog.speak(); // Output: Rover barks.
+```
+
+**Polymorphism** means the ability to redefine methods in a child class
+```
+class Shape {
+  area() {
+    console.log("Area not defined");
+  }
+}
+
+class Circle extends Shape {
+  constructor(radius) {
+    super();
+    this.radius = radius;
+  }
+
+  area() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+const circle = new Circle(5);
+console.log(circle.area()); // Output: 78.53981633974483
+```
+
+**Abstraction** hides implementation details and shows only essential features. JS dosent have built-in supprot for abstract classes but can be simulated.
+```
+class AbstractVehicle {
+  constructor() {
+    if (new.target === AbstractVehicle) {
+      throw new Error("Cannot instantiate abstract class.");
+    }
+  }
+
+  move() {
+    throw new Error("Method 'move()' must be implemented.");
+  }
+}
+
+class Car extends AbstractVehicle {
+  move() {
+    console.log("Car is moving");
+  }
+}
+
+const car = new Car();
+car.move(); // Output: Car is moving
+
+// const vehicle = new AbstractVehicle(); // Error: Cannot instantiate abstract class.
+```
+
+4. Prototypes and inheritance: objects inherit from other objects via the prototype chain
+```
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function() {
+  console.log(`Hello, ${this.name}!`);
+};
+
+const person = new Person("Nidhi");
+person.greet(); // Output: Hello, Nidhi!
+```
+
+5. Static Methods: belong to class, not the instance.
+```
+class MathUtils {
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+console.log(MathUtils.add(5, 3)); // Output: 8
+```
+
+6. Getters and Setters: use get and set to control how propeties are accessed or modified.
+```
+class Person {
+  constructor(name) {
+    this._name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(newName) {
+    this._name = newName;
+  }
+}
+
+const person = new Person("ABC");
+console.log(person.name); // Output: ABC
+```
+
+7. Mixins: allow multiple inheritance by copying methods into a class.
+```
+const CanEat = {
+  eat() {
+    console.log("Eating...");
+  }
+};
+
+const CanWalk = {
+  walk() {
+    console.log("Walking...");
+  }
+};
+
+class Person {}
+Object.assign(Person.prototype, CanEat, CanWalk);
+
+const person = new Person();
+person.eat(); // Output: Eating...
+person.walk(); // Output: Walking...
+```
 
 # Mathematical operations with number and number as strings
 
