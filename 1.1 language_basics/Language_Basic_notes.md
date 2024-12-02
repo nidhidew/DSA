@@ -28,7 +28,7 @@ person1.greet();// output: Hello, ABC
 ```
 
 3. Principles of oop in Javascript:
-**Encapsulation** means bundling data(properties) and methods(functions) together within an object.
+* **Encapsulation** means bundling data(properties) and methods(functions) together within an object.
 Use Private fields (introduced in ES2021) or clousres to restrict access to object properties.
 ```
 class BankAccount {
@@ -53,7 +53,7 @@ console.log(account.getBalance()); // Output: 150
 // console.log(account.#balance); // Error: Private field
 ```
 
-**Inhertance** allows 1 class(child) to acquire propeties and methods from another class(parent)
+* **Inhertance** allows 1 class(child) to acquire propeties and methods from another class(parent)
 ```
 class Animal {
   constructor(name) {
@@ -75,7 +75,7 @@ const dog = new Dog("Rover");
 dog.speak(); // Output: Rover barks.
 ```
 
-**Polymorphism** means the ability to redefine methods in a child class
+* **Polymorphism** means the ability to redefine methods in a child class
 ```
 class Shape {
   area() {
@@ -98,7 +98,7 @@ const circle = new Circle(5);
 console.log(circle.area()); // Output: 78.53981633974483
 ```
 
-**Abstraction** hides implementation details and shows only essential features. JS dosent have built-in supprot for abstract classes but can be simulated.
+* **Abstraction** hides implementation details and shows only essential features. JS dosent have built-in supprot for abstract classes but can be simulated.
 ```
 class AbstractVehicle {
   constructor() {
