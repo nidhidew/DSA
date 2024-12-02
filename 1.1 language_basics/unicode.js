@@ -36,7 +36,8 @@ console.log("to convert into character ",String.fromCodePoint(0x1F610)); // 😀
 //unicode encoding
 const encoder = new TextEncoder();
 const uint8Array = encoder.encode('😀');
-console.log(uint8Array); // Uint8Array with UTF-8 bytes
+console.log("with UTF-8 bytes(encoded) ", uint8Array); // Uint8Array with UTF-8 bytes
 
 const decoder = new TextDecoder();
-console.log(decoder.decode(uint8Array)); // 😀
+console.log("with UTF-8 bytes(decoded) ",decoder.decode(uint8Array)); // 😀
+

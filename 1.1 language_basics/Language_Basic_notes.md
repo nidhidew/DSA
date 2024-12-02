@@ -1,3 +1,57 @@
+
+
+# Mathematical operations with number and number as strings
+
+* js implicitly converts the string to a number if its a valid numeric string, for most arithmetic operations.
+1. **Addition**
+```
+console.log(10 + "5"); // "105" (string concatenation)
+console.log("10" + 5); // "105" (string concatenation)
+console.log(10 + +"5"); // 15 (numeric addition, the unary + converts "5" to 5)
+```
+2. **Subtraction**
+```
+console.log(10 - "5"); // 5
+console.log("10" - 5); // 5 (JS tries to coerce strings into numbers if possible)
+console.log(10 - "abc"); // NaN 
+```
+
+3. **Multiplication**
+```
+console.log(10 * "5"); // 50 (numeric strings are coerced)
+console.log("10" * 5); // 50 if sring is numeric, it is coerced
+console.log(10 * "abc"); // NaN
+```
+
+4. **Division**
+```
+console.log(10 / "5"); // 2 (numeric strings are coerced)
+console.log("10" / 5); // 2 (numeric strings are coerced)
+console.log(10 / "abc"); // NaN
+```
+
+5. **Modulus**
+```
+console.log(10 % "3"); // 1 (numeric strings are coerced)
+console.log("10" % 3); // 1 (numeric strings are coerced)
+console.log(10 % "abc"); // NaN
+```
+
+6. **Exponentition**
+```
+console.log(10 ** "2"); // 100 (numeric strings are coerced)
+console.log("2" ** 3); // 8 (numeric strings are coerced)
+console.log(10 ** "abc"); // NaN
+```
+
+7. **Unary Operators**
+```
+console.log(+"5"); // 5 (numeric strings are coerced)
+console.log(-"5"); // -5 (numeric strings are coerced)
+console.log(+"abc"); // NaN
+console.log(-"abc"); // NaN
+```
+
 # Variables
 
 1. variable is a named storage for data.
