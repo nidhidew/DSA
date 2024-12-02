@@ -301,3 +301,32 @@ const regex = /\p{Emoji}/u;
 console.log(regex.test('😀')); // true
 ```
 
+* **Unicode Normalization**
+- unicode allows multiple ways to represent the dame character (e.g., é as U+00E9 or U+0065 U+0301).
+- use normalize() to standardize strings:
+```
+const str = '\u0065\u0301'; // e + accent
+console.log(str.normalize() === '\u00E9'); // true
+```
+- it is required to ensure that Unicode text is represented in a consistent format. Many characters in unicode can be represented in multiple ways, which can cause issues in text comaprison,seraching,sorting and processing.
+
+* **Converting Code Points**
+```
+console.log('😀'.codePointAt(0).toString(16)); // 1f600
+console.log(String.fromCodePoint(0x1F600)); // 😀
+```
+- 1st line is to retrieve the Unicode code point
+- 2nd line is to convert code point to a character
+
+* **Unicode Encoding**
+- **UTF-16 vs UTF-8**:- js uses UTF-16 internally but UTF-8 is commonly used for external data( like JSON,APIs)
+- **Enocde/Decode with `TextEncode` and `TextDecoder`**:- introduced in modern js for converting between text and binary data.
+```
+const encoder = new TextEncoder();
+const uint8Array = encoder.encode('😀');
+console.log(uint8Array); // Uint8Array with UTF-8 bytes
+
+const decoder = new TextDecoder();
+console.log(decoder.decode(uint8Array)); // 😀
+
+```
