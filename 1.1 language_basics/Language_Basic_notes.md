@@ -373,6 +373,108 @@ document.body.innerHTML = "hello, world!"; //output on the webpage
     ```
 * combine javascript with html to create interactive input and output on web pages.
 
+# Why let and const were came in picture?
+1. **Issues with var**
+**a. Function Scope Instead of Block Scope**
+Variables declared with var are scoped to the nearest function or global scope, not the block in which they are defined.
+Example:
+```
+if (true) {
+  var x = 10; // Function-scoped
+}
+
+console.log(x); // 10 (Accessible outside the block)
+
+function f1(){
+    var a =10
+
+}
+f1()
+console.log(a); //error: a is not defined
+```
+This behavior can lead to unintended consequences, especially in loops and conditionals.
+**b. Hoisting**
+var declarations are hoisted (moved to the top of their scope), but their value is not initialized until the line of code is executed. Accessing the variable before its declaration gives undefined.
+Example:
+```
+console.log(x); // undefined
+var x = 10;
+```
+This can cause confusion and bugs if developers are unaware of the hoisting behavior.
+**c. No block-level scope**
+With var, loops and other block-level constructs do not create a new scope, leading to unexpected behavior in closures.
+Example:
+```
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Output: 3, 3, 3 (All callbacks share the same `i`)
+```
+**d. Accidental global variables**
+Forgetting to use var creates an implicit global variable, which can be difficult to track in large codebases.
+Example:
+```
+function foo() {
+  x = 10; // No `var` declaration
+}
+foo();
+console.log(x); // 10 (Accidentally global variable)
+```
+
+2. **Advantages of let**
+**a. Block-Level Scope**
+Variables declared with let are scoped to the block they are declared in.
+Example:
+```
+if (true) {
+  let y = 20;
+}
+console.log(y); // Error: y is not defined
+```
+**b. No Hoisting Pitfall**
+Although let is hoisted, it is in the temporal dead zone (TDZ) until its declaration is encountered. Accessing it before declaration results in an error.
+Example:
+```
+console.log(y); // Error: Cannot access 'y' before initialization
+let y = 10;
+```
+**c. Better Loop Behavior**
+A new let variable is created for each iteration of a loop, preserving the correct value in closures.
+Example:
+```
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Output: 0, 1, 2
+```
+3. **Advantages of const**
+**a. Immutable Variable Binding**
+const is used to declare variables that cannot be reassigned after their initial assignment. This ensures better code stability and prevents accidental reassignment.
+Example:
+```
+const z = 50;
+z = 60; // Error: Assignment to constant variable
+```
+**b. Block-Level Scope**
+Like let, const is block-scoped.
+Example:
+```
+if (true) {
+  const a = 10;
+}
+console.log(a); // Error: a is not defined
+```
+**c. Reference Type Mutability**
+For objects and arrays, const ensures the reference cannot be reassigned, but the contents can still be mutated.
+Example:
+```
+const obj = { name: "Nidhi" };
+obj.name = "Dewangan"; // Allowed
+console.log(obj); // { name: "Dewangan" }
+
+obj = {}; // Error: Assignment to constant variable
+```
+
 # Type Conversions
 * String conversion happens when we need the string form of a value
 * call the String(value) function to convert a value to a string:
@@ -575,3 +677,24 @@ const decoder = new TextDecoder();
 console.log(decoder.decode(uint8Array)); // 😀
 
 ```
+## Why use Unicode instead of ASCII? 
+
+1. **Broader Character Support**:
+   - ASCII can only represent **128 characters**, which is enough for English but not for other languages.
+   - Unicode supports **many languages**, symbols, emojis, and special characters from around the world.
+
+2. **Global Compatibility**:
+   - Unicode allows you to write and display text in **multiple languages** in the same document or program.
+   - ASCII is limited to just basic English characters.
+
+3. **Modern Use**:
+   - Today’s software and the internet require a way to handle a variety of symbols (e.g., emojis 😊, currency symbols €, etc.).
+   - Unicode makes this possible.
+
+---
+
+### Example:
+- ASCII: Can show `A`, `B`, `C`, `1`, `2`, `3`, but **not** `你好` (Chinese) or `😊`.
+- Unicode: Can handle all of these: `A`, `1`, `你好`, `😊`, `₹`.
+
+In short: **Unicode is better for a multilingual, globalized world.**
