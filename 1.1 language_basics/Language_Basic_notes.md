@@ -763,3 +763,45 @@ console.log(decoder.decode(uint8Array)); // 😀
 - Unicode: Can handle all of these: `A`, `1`, `你好`, `😊`, `₹`.
 
 In short: **Unicode is better for a multilingual, globalized world.**
+
+# Pass By Value
+```
+let myNum = 10;
+passByValue(myNum);
+console.log("After - Pass By Value: ",myNum);
+function passByValue(num){
+    console.log("Before - Pass By Value: ",num);    
+    num = num + 10;
+}
+```
+* myNum variable has value 10 which is passed to console.log to print the myNum value and passByValue function to use myNum value.
+* myNum value is printed inside and outside the function block, and both are same.
+* in Pass By Value primitive datatype (number,string etc.) value, pass copy of that value in function. So if value inside function is modified it wont be affecting original value.
+
+# Pass By Reference
+```
+let myObj = {name: "Nidhi"}
+passByReference(myObj);
+console.log("After - Pass By Reference: ",myObj);
+function passByReference(obj){
+    console.log("Before - Pass By Reference: ",obj);
+    obj.name = "Alice";
+}
+```
+* myObj variable is a object with key and value which has passed to console.log to print the myObj value and passByReference function to use myObj value.
+* myObj value is printed inside and outside the function block and both are different.
+* in Pass By Reference non-primitive datatype value passed to function where it will pass the copy of variable address. so if value inside the function is modified it will change the original value too because modification is happend while considering address of the variable(original variable and value).
+
+```
+let myObj2 = {property: "apple"};
+passByReference2(myObj2);
+console.log("After - Pass By Reference(2): ",myObj2);
+function passByReference2(obj2){
+    console.log("Before - Pass By Refrence(2): ",obj2)
+    obj2 = {property: "grapes"};
+    obj2.property = "lemon";
+}
+```
+* above example as its shown inside function myObj is reassigned and after that property of obj2 is modified. 
+* in code before and after myObj2 value is printed and it will be same even though its pass by reference because changes applied in reassigned variable not in copy of variable addressed value.
+* non-primitive datatypes are arrays,objects etc.
