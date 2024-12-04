@@ -1,32 +1,26 @@
 //for
-for(initializing;CSSConditionRule;increment/decrement){
-    //statement
+for(let a = 0;a < 5;a++){
+    console.log(a);    
 }
 
 //while
-while(condition){
-    //statement
+let b = 0
+while(b < 5){
+    console.log(b);
+    b++;
 }
 
 //do...while
+let c = 0;
 do{
-    // statement
-} while(condition);
-
-//for..of
-for(element of iterable){
-    //statement
-}
+    console.log(c);
+    c++;
+} while(c < 5);
 
 //for..of example
 const numbers = [1,2,3,4,5,6,7]
 for(let num of numbers){
     console.log(num)
-}
-
-//for..in
-for(key in object){
-    //statement
 }
 
 //for..in example
