@@ -6,7 +6,6 @@ Time complexity is a way to measure **how the runtime of an algorithm grows as t
 
 ### **Why Time Complexity?**
 - To compare different algorithms and choose the most efficient one.
-- It doesn't depend on hardware or language but focuses on the number of operations.
 
 ---
 
