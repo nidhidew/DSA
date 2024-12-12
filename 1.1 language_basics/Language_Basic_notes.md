@@ -75,7 +75,7 @@ const dog = new Dog("Rover");
 dog.speak(); // Output: Rover barks.
 ```
 
-* **Polymorphism** means the ability to redefine methods in a child class
+* **Polymorphism** means allows a child class to access and use properties and methods from its parent class through inheritance. Additionally, the child class can override parent methods to provide its specific implementation.
 ```
 class Shape {
   area() {
