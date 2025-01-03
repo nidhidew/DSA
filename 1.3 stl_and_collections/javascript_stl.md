@@ -155,8 +155,3 @@ console.log(gen.next()); // { value: 1, done: false }
 ```
 
 ---
-
-### **Summary**
-JavaScript's built-in methods and data structures make it a powerful language for data manipulation and problem-solving. They cover almost all areas, from arrays and strings to promises and asynchronous operations.
-
-Let me know if you want to explore a specific topic! 😊
