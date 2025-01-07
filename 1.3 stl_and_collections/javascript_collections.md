@@ -141,5 +141,3 @@ console.log(typedArray); // Uint8Array(4) [255, 0, 0, 0]
 - **Set**: When you need a collection of unique values.
 - **WeakMap**: When you need to associate metadata with objects without preventing garbage collection.
 - **WeakSet**: When you need to track objects without memory leaks.
-
-Let me know if you'd like further clarification or examples! 😊
