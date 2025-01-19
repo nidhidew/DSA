@@ -353,7 +353,7 @@ console.log(-"abc"); // NaN
 # User input output 
 
 1. handle user input output in different ways, depending on the environment.
-2. ## Browser Environment
+2. **Browser Environment**
 * use prompt() to get input from the user.
 ```
 let name = prompt("enter your name:");
@@ -368,8 +368,8 @@ console.log("this is a console.log"); //output using console
 alert("this is a alert"); //output using alert
 document.body.innerHTML = "hello, world!"; //output on the webpage
 ```
-3. ## NodeJS Environment
-* ## Input:-
+3. **NodeJS Environment**
+* **Input**:-
     use the readline module to get input from the command line.
     ```
     const readline = require("readline")
@@ -383,19 +383,19 @@ document.body.innerHTML = "hello, world!"; //output on the webpage
         r1.close();
     });
     ```
-* ## Output:-
+* **Output**:-
     use console.log() to display out on the console.
     ```
     console.log("this is an output in nodeJS");
     ```
-4. ## HTML forms for input and output
-* ## Input:-
+4. **HTML forms for input and output**
+* **Input**:-
     you can create an HTML form to get user input.
     ```
     <input type="text" id="nameInput" placeholder="enter your name" />
     <button onclick="greet()">Submit</button>
     ```
-* ## Output:-
+* **Output**:-
     show the output dynamically on the webpage.
     ```
     function greet(){
@@ -405,9 +405,9 @@ document.body.innerHTML = "hello, world!"; //output on the webpage
     ```
 * combine javascript with html to create interactive input and output on web pages.
 
-# **What are Arrays and Strings in JavaScript?**
+# What are Arrays and Strings in JavaScript?
 
-## **Arrays in JavaScript**
+**Arrays in JavaScript**
 1. **Definition**:
    - An **array** is a data structure used to store multiple values in a single variable.
    - Values (called elements) are stored in a specific order and can be accessed using an **index**.
@@ -432,7 +432,7 @@ document.body.innerHTML = "hello, world!"; //output on the webpage
    - Deletion: `arr.pop()` (O(1))
    - Searching: Linear Search (O(n)) or Binary Search (O(log n), for sorted arrays).
 
-## **Strings in JavaScript**
+**Strings in JavaScript**
 1. **Definition**:
    - A **string** is a sequence of characters used to represent text.
 
@@ -455,7 +455,7 @@ document.body.innerHTML = "hello, world!"; //output on the webpage
    - Concatenation: `str1 + str2` (O(n))
    - Searching for substrings: `str.includes('el')` (O(n))
 
-## **DSA Example Problem**
+**DSA Example Problem**
 - **Array**: Find the maximum number in an array.
   ```
   const arr = [3, 5, 1, 9];
@@ -473,7 +473,7 @@ Arrays and strings are fundamental in both **JavaScript programming** and **data
 # Why let and const were came in picture?
 1. **Issues with var**
 **a. Function Scope Instead of Block Scope**
-Variables declared with var are scoped to the nearest function or global scope, not the block in which they are defined.
+Variables declared with var are scoped to the global scope, not the block in which they are defined.
 Example:
 ```
 if (true) {
@@ -574,7 +574,7 @@ obj = {}; // Error: Assignment to constant variable
 
 # Type Conversions
 * String conversion happens when we need the string form of a value
-* call the String(value) function to convert a value to a string:
+* call the **String(value)** function to convert a value to a string:
 ```
 let value = true;
 console.log(typeof value); // boolean
@@ -582,7 +582,7 @@ value = String(value);
 console.log(typeof value); // string
 ```
 * Numeric conversion in mathematical functions and expressions happens automatically.
-* use Number(value) function to explicitly convert a value to a number:
+* use **Number(value)** function to explicitly convert a value to a number:
 ```
 let str = "123";
 console.log(typeof str);
@@ -593,7 +593,7 @@ console.log(typeof num);
 * if the string is not a valid number, the result of such a conversion is NaN.
 
 # Boolean conversion
-* it happens in logical operations but can also be performed explicitly with a call to Boolean(value).
+* it happens in logical operations but can also be performed explicitly with a call to **Boolean(value)**.
 * the conversion rule:
 - values that are intuitively "empty", like 0 an empty string, null, undefined and NaN become false.
 - Other values become true.
@@ -688,7 +688,7 @@ console.log( null >= 0 ); //true
 * Mathematically, that’s strange. The last result states that “null is greater than or equal to zero”, so in one of the comparisons above it must be true, but they are 
 both false.
 
-* The reason is that an equality check == and comparisons > < >= <= work differently. Comparisons convert null to a number, treating it as 0. That’s why (3) null >= 0 is
+* The reason is that an **equality check ==** and **comparisons > < >= <=** work differently. Comparisons convert null to a number, treating it as 0. That’s why (3) null >= 0 is
  true and (1) null > 0 is false.
 
 * On the other hand, the equality check == for undefined and null is defined such that, without any conversions, they equal each other and don’t equal anything else. 
