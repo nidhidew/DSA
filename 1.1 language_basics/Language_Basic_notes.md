@@ -28,103 +28,135 @@ person1.greet();// output: Hello, ABC
 ```
 
 3. Principles of oop in Javascript:
-* **Encapsulation** means bundling data(properties) and methods(functions) together within an object.
-Use Private fields (introduced in ES2021) or clousres to restrict access to object properties.
+* **Encapsulation** means <ins>bundling data(properties) and methods(functions) together within an object.</ins>
+Use <ins>Private fields</ins> (introduced in ES2021) or <ins>clousres</ins> to restrict access to object properties.
 ```
-class BankAccount {
-  #balance; // Private field
+class BankAccount { // defines class 
+  #balance; // decalres Private field
 
-  constructor(balance) {
-    this.#balance = balance;
+  constructor(balance) { //initializing an object
+    this.#balance = balance; //assigns the given balance value to the private field #balance 
   }
 
-  deposit(amount) {
-    this.#balance += amount;
+  deposit(amount) { //create a method to add money to the account
+    this.#balance += amount; //increase the balance by the given amount
   }
 
-  getBalance() {
+  getBalance() { //create a method that returns the current balance
     return this.#balance;
   }
 }
 
-const account = new BankAccount(100);
-account.deposit(50);
-console.log(account.getBalance()); // Output: 150
-// console.log(account.#balance); // Error: Private field
+const account = new BankAccount(100); // create a new account with initial balance of 100
+account.deposit(50); //add or deposit amount 50 in the account
+console.log(account.getBalance()); // Output: 150 (returns the current balance)
+// console.log(account.#balance); // Error: Private field (since #balance in this line is private)
 ```
+**Steps**:
+1. BankAccount is a blueprint for creating bank account objects
+2. #balance is a private variable, accessible only inside the class
+3. initializes the account with a given balance
+4. deposit(amount) increases balance, getBalance() returns balance.
+5. the private field #balance prevents direct modification from outside
 
-* **Inhertance** allows 1 class(child) to acquire propeties and methods from another class(parent)
+* **Inhertance** <ins>allows 1 class(child) to acquire propeties and methods from another class(parent)</ins>
 ```
-class Animal {
-  constructor(name) {
-    this.name = name;
+class Animal { //defining the parent class (Animal), acts as a blueprint for creating animals.
+  constructor(name) { //constructor initializes an object with a name property
+    this.name = name; //stores the given name in the object
   }
 
-  speak() {
-    console.log(`${this.name} makes a noise.`);
+  speak() { //create method inside the Animal class
+    console.log(`${this.name} makes a noise.`); // will print a generic messsage with actual name of the animal which is stores in constructor
   }
 }
 
-class Dog extends Animal {
-  speak() {
-    console.log(`${this.name} barks.`);
+class Dog extends Animal { //Dog inherits from the Animal class using extends which means Dog gets all properties and methods from Animal, including name and speak().
+  speak() { // override the speak() method from Animal
+    console.log(`${this.name} barks.`); // Instead of saying "makes a noise.", it now customizes the message to "barks.".
+
   }
 }
 
-const dog = new Dog("Rover");
-dog.speak(); // Output: Rover barks.
+const dog = new Dog("Rover"); //create an object dog from the Dog class
+dog.speak(); // Output: Rover barks. (Dog overrides the speak() method so it does not call the Animal method)
 ```
+**Steps**
+1. Dog class inherits from Animal
+2. new Dog("Rover") creates an object and calls the Animal constructor to set this.name = "Rover"
+3. dog.speaks() is called
+4. Since Dog overrides speak(), the custom method `console.log(${this.name} barks);` runs
+5. output: Rover barks
+6. Note: if speak() method is not overridden then output: Rover makes a noise
 
-* **Polymorphism** means allows a child class to access and use properties and methods from its parent class through inheritance. Additionally, the child class can override parent methods to provide its specific implementation.
+* **Polymorphism** means <ins>allows a child class to access and use properties and methods from its parent class through inheritance. Additionally, the child class can override parent methods to provide its specific implementation.</ins>
 ```
-class Shape {
-  area() {
+class Shape { // create base or super class
+  area() { // has a method which simply logs "Area not defined"
     console.log("Area not defined");
   }
 }
 
-class Circle extends Shape {
-  constructor(radius) {
-    super();
-    this.radius = radius;
+class Circle extends Shape { // Circle inherits from Shape
+  constructor(radius) { 
+    super(); // Calls the constructor of Shape (super() is required in a subclass even though parent class has no constructor.
+    this.radius = radius; // stores the radius in the circle object.
   }
 
-  area() {
-    return Math.PI * this.radius ** 2;
+  area() { // overrides the area() method from Shape
+    return Math.PI * this.radius ** 2; //instead of printing "Area not defined", it now calculates the area of a circle
   }
 }
 
-const circle = new Circle(5);
+const circle = new Circle(5); // creates an object cirle with radius = 5
+// circle.area() calls the overridden area() method in Circle
 console.log(circle.area()); // Output: 78.53981633974483
 ```
+**Steps:**
+1. Circle inherits from Shape
+2. new Cirlce(5) creates a Circle object with radius = 5
+3. super(); class the Shape constructor (even thought its empty)
+4. circle.area is called
+5. Since Circle overrides area(),  it calculates
+6. will give output: console.log(circle.area())
+7. Note: if area() method is not overridden then output: Area not defined
 
-* **Abstraction** hides implementation details and shows only essential features. JS dosent have built-in supprot for abstract classes but can be simulated.
+* **Abstraction** <ins>hides implementation details and shows only essential features.</ins> JS dosent have built-in supprot for abstract classes but can be simulated.
 ```
-class AbstractVehicle {
+class AbstractVehicle { //abstract class, meaning it cannot be directly instantiated
   constructor() {
-    if (new.target === AbstractVehicle) {
-      throw new Error("Cannot instantiate abstract class.");
+    //preventing dorect instantiation
+    if (new.target === AbstractVehicle) { //new.target referes to the constructor that was directly called using new
+      throw new Error("Cannot instantiate abstract class."); //if an attempt is made to create an instance of AbstractVehicle
     }
   }
 
-  move() {
+  move() { // move() method is ment to be overridden by subclass
     throw new Error("Method 'move()' must be implemented.");
-  }
+  } // this ensures that any subclass must define its own movement behavior
 }
 
-class Car extends AbstractVehicle {
+class Car extends AbstractVehicle { // Car inherits from AbstractVehicle using extends 
   move() {
-    console.log("Car is moving");
+    console.log("Car is moving"); // provides a specific implementation of the move() method
   }
-}
+} // now Car can be instantiated without errors
 
-const car = new Car();
-car.move(); // Output: Car is moving
+const car = new Car(); //creating an Object of Car
+// Since Car provides an implementation for move(), calling car.move() and prints the output
+car.move(); // Output: Car is moving 
 
 // const vehicle = new AbstractVehicle(); // Error: Cannot instantiate abstract class.
+// above line will throw an error because AbstractVehicle is not meant to be instantiated directly.
 ```
+**Steps:**
+1. AbstractVehicle acts as a base class that should not be instantiated.
+2. new.target Prevents direct instantiation of AbstactVehicle.
+3. the move() method must be implemented in subclasses.
+4. Car and other vehicle classes inherit from AbstractVehicle.
+5. Different vehicles can have their own move() behavior.
 
-4. Prototypes and inheritance: objects inherit from other objects via the prototype chain
+6. Prototypes and inheritance: objects inherit from other objects via the prototype chain
 ```
 function Person(name) {
   this.name = name;
