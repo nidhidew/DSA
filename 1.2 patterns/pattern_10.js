@@ -32,3 +32,27 @@ r1.question("number:",(num) => {
     r1.close();
     
 })
+
+// const readline = require("readline")
+// const r1 = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+// r1.question("Enter a number: ", (n) => {
+//     let i;
+//     let j;
+//     let pattern = Number(n);
+//     let col;
+//     for(i=0;i<2*pattern;i++){
+//         let star = "";
+//         col = i;
+//         for(j=0;j<col;j++){
+//             if( col>=pattern ){
+//                 col=(2*n)-i;
+//             }
+//             star+="* "
+//         }
+//         console.log(star)
+//     }
+//     r1.close();
+// })
