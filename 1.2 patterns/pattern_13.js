@@ -11,7 +11,7 @@ r1.question("number:",(num) => {
         let rows = "";
         for(let j=1; j<=i; j++){
             rows += n+" ";
-            n = n+1;
+            n = n+1; // after loop value of n will be incremented
         }
         console.log(rows);    
     }
