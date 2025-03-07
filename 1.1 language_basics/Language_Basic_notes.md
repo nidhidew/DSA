@@ -837,3 +837,26 @@ function passByReference2(obj2){
 * above example as its shown inside function myObj is reassigned and after that property of obj2 is modified. 
 * in code before and after myObj2 value is printed and it will be same even though its pass by reference because changes applied in reassigned variable not in copy of variable addressed value.
 * non-primitive datatypes are arrays,objects etc.
+
+# Methods to Map Array
+* Set
+```
+function removeDuplicates(arr) {
+    return [...new Set(arr)];
+}
+
+// Example usage
+const numbers = [1, 2, 2, 3, 4, 4, 5, 6, 6];
+console.log(removeDuplicates(numbers)); 
+// Output: [1, 2, 3, 4, 5, 6]
+```
+* filter
+```
+function removeDuplicates(arr) {
+    return arr.filter((value, index) => arr.indexOf(value) === index);
+}
+
+// Example usage
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5, 6, 6]));
+// Output: [1, 2, 3, 4, 5, 6]
+```
