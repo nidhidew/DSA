@@ -860,3 +860,5 @@ function removeDuplicates(arr) {
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5, 6, 6]));
 // Output: [1, 2, 3, 4, 5, 6]
 ```
+
+* use continue to skip the element of an array while traversing.
