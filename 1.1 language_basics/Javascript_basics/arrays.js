@@ -7,8 +7,8 @@ const arr = [9,4,5,6,8];
 // arr.push(6)//to add elements in array
 // console.log(arr);
 
-arr.pop()
-console.log(arr);
+// arr.pop()
+// console.log(arr);
 
 // arr.unshift(9); // add a element in the 0th index of an array
 // console.log(arr);
@@ -23,8 +23,8 @@ console.log(arr);
 // console.log(arr3," convert into ",typeof arr3);
 
 // console.log(arr);
-const newArr1 = arr.slice(3) // print 1st index element to 2nd index but not 
-console.log(newArr1);
+// const newArr1 = arr.slice(3) // print 1st index element to 2nd index  
+// console.log(newArr1);
 // // console.log("B ",arr)
  
 // const newArr2 = arr.splice(1,3) // print 1st index element to 3rd index
