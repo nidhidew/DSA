@@ -1,18 +1,18 @@
 let i;
 
 // CREATION AND INITIALIZATION
-let arr = [] //EMPTY ARRAY
-let arr2 = new Array(5) //ARRAY WITH SIZE OF 5
-let arr3 = [1,2,3] //ARRAY WITH INTIAL VALUES
+let arr = []; //EMPTY ARRAY
+let arr2 = new Array(5); //ARRAY WITH SIZE OF 5
+let arr3 = [1, 2, 3]; //ARRAY WITH INTIAL VALUES
 
 // ACCESSING ELEMENTS
-arr[i] //ACCESS ELEMENT AT INDEX i
+arr[i]; //ACCESS ELEMENT AT INDEX i
 
 // UPDATING ELEMENTS
 arr[i] = 10; //UPDATE ELEMENT AT INDEX i
 
 // LENGTH
-arr.length //GET LENGTH OF ARRAY
+arr.length; //GET LENGTH OF ARRAY
 
 // ADDING / REMOVING ELEMENTS
 // arr3[arr3.length] = 4; // ADD ELEMENT IN THE END
@@ -24,10 +24,10 @@ arr.length //GET LENGTH OF ARRAY
  * SHIFT ALL EXISTING ELEMENTS TO THE RIGHT BY ONE POSITION
  * INSERT NEW ELEMENT AT INDEX 0 
 */
-for(let i=0;i<=arr3.length;i++){
-    arr3[arr3.length-i]=arr3[arr3.length-i-1] //shifting elements to the right
+for (let i = 0; i <= arr3.length; i++) {
+  arr3[arr3.length - i] = arr3[arr3.length - i - 1]; //shifting elements to the right
 }
-arr3[0] = 4 //insert the new element at index 0
+arr3[0] = 4; //insert the new element at index 0
 // console.log(arr3);
 
 /**
@@ -36,28 +36,28 @@ arr3[0] = 4 //insert the new element at index 0
  * DECREASE THE ARRAY SIZE BY 1 TO REMOVE LAST ELEMENT
 */
 
-for(let i=0;i<arr3.length;i++){
-    arr3[i] = arr3[i+1]
+for (let i = 0; i < arr3.length; i++) {
+  arr3[i] = arr3[i + 1];
 }
 --arr3.length;
 // console.log(arr3);
 
 // GET INDEX OF FIRST OCCURRENCE OF 3 || GET INDEX OF LAST OCCURRENCE OF 3 ||CHECK IF ELEMENT EXISTS IN ARRAY
-for(let i=0;i<arr3.length;i++){
-    if(arr3[i] == 3){
-        // console.log(i)
-    }
+for (let i = 0; i < arr3.length; i++) {
+  if (arr3[i] == 3) {
+    // console.log(i)
+  }
 }
 
 // CREATE A NEW ARRAY FROM INDEX 1 TO 2(MODIFIES COPIED ARRAY (slice))
 let newArr = [];
-let arr4 = [1,2,3,4,5,6];
-let n1 = 1
-let n2 = 2
-let j=0;
-for(let i=n1;i<n2;i++){
-    newArr[j] = arr4[i];
-    j++;
+let arr4 = [1, 2, 3, 4, 5, 6];
+let n1 = 1;
+let n2 = 2;
+let j = 0;
+for (let i = n1; i < n2; i++) {
+  newArr[j] = arr4[i];
+  j++;
 }
 // console.log(newArr);
 
@@ -75,33 +75,84 @@ for(let i=n1;i<n2;i++){
 6. **Step 5:** Return the array of removed elements.  
 7. **Done!** 😎  
 */
-let arr5 = [1,2,3,4,5,6]
+let arr5 = [1, 2, 3, 4, 5, 6];
 
-let rmvElement = []
+let rmvElement = [];
 let rmvIndex = 0;
 
-let items = []
-let start = 1
-let deleteCount = 2
+let items = [];
+let start = 1;
+let deleteCount = 2;
 
-for(let i=start; i<start+deleteCount && i>arr5.length; i++){
-    rmvElement[rmvIndex] = arr5[i]
-    rmvIndex++;
+for (let i = start; i < start + deleteCount && i > arr5.length; i++) {
+  rmvElement[rmvIndex] = arr5[i];
+  rmvIndex++;
 }
 
-for(let i=start+deleteCount;i<arr5.length;i++){
-    arr5[i-deleteCount] = arr5[i];
+for (let i = start + deleteCount; i < arr5.length; i++) {
+  arr5[i - deleteCount] = arr5[i];
 }
 
-arr5.length = arr5.length-deleteCount;
+arr5.length = arr5.length - deleteCount;
 
-for(let i=arr5.length-1;i>=start;i--){
-    arr5[i+items.length] = arr5[i];
+for (let i = arr5.length - 1; i >= start; i--) {
+  arr5[i + items.length] = arr5[i];
 }
-for(let i=0;i<items.length;i++){
-    arr5[start+i] = items[i];
+for (let i = 0; i < items.length; i++) {
+  arr5[start + i] = items[i];
 }
-console.log(arr5);
+// console.log(arr5);
 // return rmvElement;
 
 // SORT ARRAY
+let nums = [1, 4, 5, 3, 2];
+let swap = 0;
+let isSorted = false;
+
+while (!isSorted) { // Run the loop until no swaps are made
+    isSorted = true;
+    for (let i = 0; i < nums.length - 1; i++) { // Fix loop condition
+        if (nums[i] > nums[i + 1]) {
+            swap = nums[i];
+            nums[i] = nums[i + 1];
+            nums[i + 1] = swap;
+            isSorted = false;
+        }
+    }
+}
+
+// console.log(nums); 
+
+// REVERSE ARRAY
+let array = [1, 2, 3, 4, 5];
+let start2 = 0;
+let end2 = array.length - 1;
+
+while (start2 < end2) {
+    let temp = array[start2];
+    array[start2] = array[end2];
+    array[end2] = temp;
+    start2++;
+    end2--;
+}
+
+console.log(array); 
+
+// REMOVE DUPLICATES AND CONCAT
+let a = [1, 2, 3, 4];
+let b = [3, 4, 5, 6];
+
+let result = [];
+
+for (let i = 0; i < a.length; i++) {
+    result.push(a[i]);
+}
+
+for (let i = 0; i < b.length; i++) {
+    if (!result.includes(b[i])) {
+        result.push(b[i]);
+    }
+}
+
+// console.log(result); 
+

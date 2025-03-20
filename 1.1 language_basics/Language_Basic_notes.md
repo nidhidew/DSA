@@ -862,3 +862,16 @@ console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5, 6, 6]));
 ```
 
 * use continue to skip the element of an array while traversing.
+
+# while loop
+* when we need to run a loop till any statement is true or false, for that while loop can be used.
+```
+let isSorted = false
+while(!isSorted){
+  //statements
+}
+```
+* Use for loop → When you know the number of iterations.
+* Use while loop → When you don't know how many iterations are needed (like in sorting).
+
+Easy Rule: If the loop depends on a condition → Use while 
