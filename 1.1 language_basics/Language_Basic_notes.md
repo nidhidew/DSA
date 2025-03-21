@@ -875,3 +875,19 @@ while(!isSorted){
 * Use while loop → When you don't know how many iterations are needed (like in sorting).
 
 Easy Rule: If the loop depends on a condition → Use while 
+
+# swap operation
+
+```
+let nums = [1, 4, 5, 3, 2];
+let swap = 0;
+
+swap = nums[i];
+nums[i] = nums[i + 1];
+nums[i + 1] = swap;
+```
+* this snippet is from sorting code. here try to sort the array elements by swapping
+* 1st, swap is decalred and initialized 0, then swap value is updated to nums[i] which will be one of the array elements
+* 2nd, nums[i] is re-initiliazed/updated to nums[i+1] which will be one of the array elements.
+* 3rd, nums[i+1] is re-initiliazed/updated to swap value which was updated to nums[i]
+* so thats how nums[i] and nums[i+1] value is changed to each other value.
