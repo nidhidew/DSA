@@ -141,47 +141,38 @@ while (start2 < end2) {
 // CONCAT
 let arrCon = [1, 2, 3];
 let arrCat = [4, 5, 6];
-
 let result = [];
 let index = 0;
-
 // Copy arrCon into result
 for (let i = 0; i < arrCon.length; i++) {
     result[index] = arrCon[i];
     index++;
 }
-
-// Copy arr2 into result
+// Copy arrCat into result
 for (let i = 0; i < arrCat.length; i++) {
     result[index] = arrCat[i];
     index++;
 }
-
-console.log(result); // Output: [1, 2, 3, 4, 5, 6]
+console.log(result); 
 
 // REMOVE DUPLICATES
 let arrRmv = [1, 2, 2, 3, 4, 4, 5];
-
 let uniqueArr = [];
 let index2 = 0;
-
-// Loop through arr
+// Loop through arrRmv
 for (let i = 0; i < arrRmv.length; i++) {
     let exists = false;
-    
-    // Check if arr[i] already exists in uniqueArr
+    // Check if arrRmv[i] already exists in uniqueArr
     for (let j = 0; j < index2; j++) {
         if (uniqueArr[j] === arrRmv[i]) {
             exists = true;
             break;
         }
     }
-    
     // If arr[i] is unique, add it to uniqueArr
     if (!exists) {
         uniqueArr[index2] = arrRmv[i];
         index2++;
     }
 }
-
-console.log(uniqueArr); // Output: [1, 2, 3, 4, 5]
+console.log(uniqueArr); 
