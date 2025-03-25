@@ -22,6 +22,46 @@ function factorial(n) {
 }
 
 console.log(factorial(5)); // Output: 120
+
+/*
+### **Understanding the function**  
+- **Base Case** → If `n` is `0` or `1`, return `1`.  
+- **Recursive Case** → Multiply `n` by `factorial(n - 1)`.  
+
+Now, let’s go step by step for `factorial(5)`:  
+
+### **Step-by-Step Execution**  
+
+1. `factorial(5)`:  
+   - `n = 5`, not `0` or `1`, so it calls `factorial(4)`.  
+   - `return 5 * factorial(4)`.  
+
+2. `factorial(4)`:  
+   - `n = 4`, so it calls `factorial(3)`.  
+   - `return 4 * factorial(3)`.  
+
+3. `factorial(3)`:  
+   - `n = 3`, so it calls `factorial(2)`.  
+   - `return 3 * factorial(2)`.  
+
+4. `factorial(2)`:  
+   - `n = 2`, so it calls `factorial(1)`.  
+   - `return 2 * factorial(1)`.  
+
+5. `factorial(1)`:  
+   - `n = 1`, base case reached.  
+   - `return 1`.  
+
+### **Returning Back (Unwinding the Recursion Stack)**  
+Now, the function returns values from the last call to the first call:
+
+- `factorial(1) = 1`  
+- `factorial(2) = 2 * 1 = 2`  
+- `factorial(3) = 3 * 2 = 6`  
+- `factorial(4) = 4 * 6 = 24`  
+- `factorial(5) = 5 * 24 = 120`  
+
+Final Output: **120** */
 ```
 
 #### 2. **Fibonacci Sequence**
@@ -35,6 +75,68 @@ function fibonacci(n) {
 }
 
 console.log(fibonacci(6)); // Output: 8 (Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8)
+
+/*
+### **Understanding Fibonacci Sequence**
+The Fibonacci sequence is:  
+`0, 1, 1, 2, 3, 5, 8, 13, 21, ...`  
+Each number is the sum of the two previous numbers:  
+\[
+F(n) = F(n-1) + F(n-2)
+\]
+with **base cases**:  
+- `F(0) = 0`
+- `F(1) = 1`
+
+### **Step-by-step Execution for `fibonacci(6)`**
+When `fibonacci(6)` is called, the function breaks down like this:
+fibonacci(6) = fibonacci(5) + fibonacci(4)
+
+Now, it calculates `fibonacci(5)` and `fibonacci(4)` recursively:
+fibonacci(5) = fibonacci(4) + fibonacci(3)
+fibonacci(4) = fibonacci(3) + fibonacci(2)
+
+Expanding further:
+
+fibonacci(3) = fibonacci(2) + fibonacci(1)
+fibonacci(2) = fibonacci(1) + fibonacci(0)
+
+Now, we reach the **base cases**:
+
+fibonacci(1) = 1
+fibonacci(0) = 0
+
+### **Recursive Call Stack (Tree Representation)**
+The function calls look like this:
+
+
+                    fibonacci(6)
+                   /            \
+          fibonacci(5)       fibonacci(4)
+         /          \         /         \
+  fibonacci(4)   fibonacci(3) fibonacci(3) fibonacci(2)
+  /        \      /       \     /     \      /     \
+f(3)      f(2)  f(2)     f(1)  f(2)   f(1)  f(1)   f(0)
+ / \       / \    / \
+f(2) f(1) f(1) f(0) f(1) f(0)
+
+
+Now, **values start returning from the base case**:
+
+fibonacci(1) = 1
+fibonacci(0) = 0
+
+Now, calculating upwards:
+
+fibonacci(2) = fibonacci(1) + fibonacci(0) = 1 + 0 = 1
+fibonacci(3) = fibonacci(2) + fibonacci(1) = 1 + 1 = 2
+fibonacci(4) = fibonacci(3) + fibonacci(2) = 2 + 1 = 3
+fibonacci(5) = fibonacci(4) + fibonacci(3) = 3 + 2 = 5
+fibonacci(6) = fibonacci(5) + fibonacci(4) = 5 + 3 = 8
+
+### **Final Answer**
+fibonacci(6) = 8
+*/
 ```
 
 #### 3. **Sum of an Array**
