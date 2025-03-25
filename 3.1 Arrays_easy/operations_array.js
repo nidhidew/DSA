@@ -156,6 +156,14 @@ for (let i = 0; i < arrCat.length; i++) {
 console.log(result); 
 
 // REMOVE DUPLICATES
+/*algorithm
+
+1. Create an empty array uniqueArr.
+2. Use a counter index to track the position in uniqueArr.
+3. Loop through arr and check if each element already exists in uniqueArr:
+  * If it doesn’t exist, add it to uniqueArr.
+4. Return uniqueArr.
+*/
 let arrRmv = [1, 2, 2, 3, 4, 4, 5];
 let uniqueArr = [];
 let index2 = 0;
