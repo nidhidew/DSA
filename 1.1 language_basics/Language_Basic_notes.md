@@ -223,6 +223,12 @@ person.eat(); // Output: Eating...
 person.walk(); // Output: Walking...
 ```
 
+# JS keyword
+
+* continue- to skip the current iteration
+* break- to exit from the loop
+* return- to exit from the function
+
 # Mathematical operations with number and number as strings
 
 * js implicitly converts the string to a number if its a valid numeric string, for most arithmetic operations.
