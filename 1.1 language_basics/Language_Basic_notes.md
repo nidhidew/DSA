@@ -844,6 +844,19 @@ function passByReference2(obj2){
 * in code before and after myObj2 value is printed and it will be same even though its pass by reference because changes applied in reassigned variable not in copy of variable addressed value.
 * non-primitive datatypes are arrays,objects etc.
 
+# Difference between primitive and non-primitive/reference type
+```
+let a = 10; // Primitive (Stored in Stack)
+let b = a;  // Copy of value is created, independent of 'a'
+b = 20;     // Changing 'b' does not affect 'a'
+
+let obj1 = { name: "Nidhi" }; // Reference type (Stored in Heap)
+let obj2 = obj1; // 'obj2' gets the same reference, not a copy
+obj2.name = "Cherry"; // Changes in 'obj2' affect 'obj1' as well
+
+console.log(obj1.name); // "Cherry"
+```
+
 # Methods to Map Array
 * Set
 ```
