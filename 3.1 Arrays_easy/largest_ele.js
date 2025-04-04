@@ -22,8 +22,8 @@ while(!isSorted){
 
 largest = arr[0];
 for(let i=0;i<arr.length;i++){
-    if(largest < arr[i]){
-        largest = arr[i]
+    if(largest < arr[i+1]){
+        largest = arr[i+1]
     }
 }
 console.log(largest);

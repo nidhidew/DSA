@@ -34,3 +34,28 @@ else if(filteredArr.length == 2){
 }else{
     console.log(-1)
 }
+
+/* second largest in the array */
+
+let arr2 = [-3, 0, 2, 4, 7]; //sorted array
+let largest2 = arr2[arr2.length - 1];
+let smallest2 = arr2[0];
+let second_L = arr2[0];
+
+// Optimal
+for (let i = 0; i < arr2.length; i++) {
+  if (largest > arr2[i + 1] && largest != arr2[i + 1]) {
+    second_L = arr2[i + 1];
+  }
+}
+// console.log(second_L);
+
+// Brute Force
+
+for (let i = 1; i < arr2.length; i++) {
+  if (largest > arr2[arr2.length - i]) {
+    second_L = arr2[arr2.length - i];
+    break;
+  }
+}
+console.log(second_L);
