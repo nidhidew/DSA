@@ -42,7 +42,7 @@
 
 * if looking for largest/second largest/smallest, then assign a dummy value to variable largest/smallest/second and if condition approves then assign that value which is compared.
 
-when trying writing condition logic, then consider that varaible value(aready assigned) should be opposite to value which is used to comapre.
+when trying writing condition logic, then consider that variable value(already assigned) should be opposite to value which is used to comapre.
 for example: if (largest < a[i]) means if a[i] is largest then assign that to largest variable
 
 ```
@@ -51,6 +51,10 @@ if(largest < a[i]){
 }
 ```
 similar can be try for other logics like,second largest/smallest etc.
+{
+    if traverse start from i=0 then assume largest/second largest/smallest = -1
+    if traverse start from i=1 then assume largest/second largest/smallest = arr[0]
+}
 
 * iteration means how many time loop will run
 
@@ -58,3 +62,4 @@ similar can be try for other logics like,second largest/smallest etc.
     * i = 0;i < n for n iteration
     * i = 1;i < n for n-1 iteration
     * i = 0;i <= n for n+1 iteration
+
