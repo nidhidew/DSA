@@ -59,3 +59,34 @@ for (let i = 1; i < arr2.length; i++) {
   }
 }
 console.log(second_L);
+
+// Brute force approach for unsorted array
+let arr3 = [99,85,75,65,60]
+let swap = 0;
+let sl = arr3[0];
+let sorted = false;
+
+while(!sorted){
+  sorted = true;
+  for(let i=0;i<arr3.length;i++){
+    if(arr3[i] > arr3[i+1]){
+      swap = arr3[i];
+      arr3[i] = arr3[i+1];
+      arr3[i+1] = swap;
+
+      sorted = false;
+    }
+  }
+}
+
+console.log(arr3);
+let largest3 = arr3[arr3.length - 1];
+let smallest3 = arr3[0];
+
+for(let i=0;i<arr3.length;i++){
+  if(arr3[i] < largest3 && arr3[i] > smallest3){
+    sl = arr3[i]
+  }
+}
+console.log(sl);
+
