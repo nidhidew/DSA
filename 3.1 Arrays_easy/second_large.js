@@ -95,7 +95,7 @@ for(let i=0;i<arr3.length;i++){
 }
 // console.log(sl);
 
-// Better Approach
+// Better Approach / optimal approach
 let arr4 = [99, 85, 75, 65, 60];
 let largest4 = arr4[0];
 let second4;
@@ -104,9 +104,7 @@ for (let i = 0; i < arr4.length; i++) {
   if (largest4 < arr4[i + 1]) {
     largest4 = arr4[i + 1];
   }
-}
 
-for (let i = 0; i < arr4.length; i++) {
   if (i == 0) {
     if (largest4 > arr4[i]) {
       second4 = arr4[i];
