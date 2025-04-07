@@ -123,3 +123,17 @@ for (let i = 0; i < arr4.length; i++) {
 }
 
 console.log("largest", largest4, "", "second", second4);
+
+//Optimal Approach
+let largest5 = -Infinity;
+let second5 = -Infinity; // while searching largest value in this will get initialized but cant let have undefined or no value in this variable.
+
+for(let i=0;i<arr4.length;i++){
+  if(largest5 < arr4[i]){
+    second5 = largest5; // this will prevent duplicates 
+    largest5 = arr4[i];
+  }else if(arr4[i] < largest5 && arr4[i] > second5){
+    second5 = arr4[i];
+  }
+}
+console.log("largest", largest5, "", "second", second5);
