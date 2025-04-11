@@ -39,3 +39,15 @@ while (arr[arr.length - 1] == null) {
 }
 
 console.log(arr);
+
+//optimal approach
+let w=1;
+let r=0;
+for(let r=0;r<arr.length;r++){
+  if(arr[r] != arr[w-1]){
+    arr[w] = arr[r];
+    w++;
+  }
+}
+arr.length = w;
+console.log(arr);
