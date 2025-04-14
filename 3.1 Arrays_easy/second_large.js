@@ -63,7 +63,7 @@ for (let i = 1; i < arr2.length; i++) {
 }
 // console.log(second_L);
 
-// Find secon largest element for unsorted array
+// Find second largest element for unsorted array
 
 // Brute force approach
 let arr3 = [99,85,75,65,60]
@@ -84,7 +84,6 @@ while(!sorted){
   }
 }
 
-// console.log(arr3);
 let largest3 = arr3[arr3.length - 1];
 let smallest3 = arr3[0];
 
@@ -123,17 +122,3 @@ for (let i = 0; i < arr4.length; i++) {
 }
 
 console.log("largest", largest4, "", "second", second4);
-
-//Optimal Approach
-let largest5 = -Infinity;
-let second5 = -Infinity; // while searching largest value in this will get initialized but cant let have undefined or no value in this variable.
-
-for(let i=0;i<arr4.length;i++){
-  if(largest5 < arr4[i]){
-    second5 = largest5; // this will prevent duplicates 
-    largest5 = arr4[i];
-  }else if(arr4[i] < largest5 && arr4[i] > second5){
-    second5 = arr4[i];
-  }
-}
-console.log("largest", largest5, "", "second", second5);
