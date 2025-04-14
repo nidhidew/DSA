@@ -122,3 +122,18 @@ for (let i = 0; i < arr4.length; i++) {
 }
 
 console.log("largest", largest4, "", "second", second4);
+
+//optimal approach
+let largest5 = -Infinity;
+let second_L5 = -Infinity;
+for(let i=0;i<arr.length;i++){
+	if(largest5 < arr[i]){
+		second_L5 = largest5;
+		largest5 = arr[i];
+	}
+	else if(largest5 > arr[i] && second_L5 < arr[i]){
+		second_L5 = arr[i];
+	}
+}
+
+console.log(largest5,second_L5);
