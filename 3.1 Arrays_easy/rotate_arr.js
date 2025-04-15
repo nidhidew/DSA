@@ -38,34 +38,25 @@ arr[arr.length-1] = pointer;
 console.log(arr);
 
 // Optimal Approach
-function rotate(arr, k) {
-  // Step 1: Normalize k to avoid unnecessary rotations
-  k = k % arr.length;
-
-  // Step 2: Reverse a portion of the array (helper function)
-  function reverse(start, end) {
+function operate(array, steps) {
+  let n = array.length;
+  steps = steps % n;
+  function rotate(start, end) {
     while (start < end) {
-      let temp = arr[start];
-      arr[start] = arr[end];
-      arr[end] = temp;
+      let temp = array[start];
+      array[start] = array[end];
+      array[end] = temp;
+
       start++;
       end--;
     }
   }
-
-  // Step 3: Reverse the first part (0 to n - k - 1)
-  reverse(0, arr.length - k - 1);
-
-  // Step 4: Reverse the second part (n - k to n - 1)
-  reverse(arr.length - k, arr.length - 1);
-
-  // Step 5: Reverse the entire array (0 to n - 1)
-  reverse(0, arr.length - 1);
+  rotate(0, n - steps - 1); //1st rotation for front part which will go to back
+  rotate(n - steps, n - 1); //2nd rotation for back part which will go to front
+  rotate(0, n - 1); //full rotation for all the elements as long as while loop condition is satisfied
 }
-
-// Test the function
-let arr = [1, 2, 3, 4, 5, 6, 7];
+let arr2 = [1, 2, 3, 4, 5, 6, 7];
 let k2 = 3;
 
-rotate(arr, k);
-console.log(arr);  // Output: [5, 6, 7, 1, 2, 3, 4]
+operate(arr2, k2);
+console.log(arr2);
