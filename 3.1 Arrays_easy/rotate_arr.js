@@ -28,14 +28,7 @@ for(let j=0;j<nums.length;j++){
 }
 console.log(nums);
 
-// brute force for Left Rotate the Array by One
-let arr = [1,2,3,4,5]
-let pointer = arr[0]
-for(let i=1;i<arr.length;i++){
-    arr[i-1] = arr[i]
-}
-arr[arr.length-1] = pointer;
-console.log(arr);
+//or
 
 // Optimal Approach
 function operate(array, steps) {
@@ -60,3 +53,13 @@ let k2 = 3;
 
 operate(arr2, k2);
 console.log(arr2);
+
+// brute force for Left Rotate the Array by One
+let arr = [1,2,3,4,5]
+let pointer = arr[0]
+for(let i=1;i<arr.length;i++){
+    arr[i-1] = arr[i]
+}
+arr[arr.length-1] = pointer;
+console.log(arr);
+
