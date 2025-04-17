@@ -11,13 +11,30 @@ let exists = false;
 while (!exists) {
   exists = true;
   for (let i = 1; i < nums.length; i++) {
-    if (nums[pointer] + nums[i] == target) {
+    if (pointer != i && nums[pointer] + nums[i] == target) {
       output = [pointer, i];
       exists = true;
-    } else if (nums[pointer] + nums[i] != target && i == nums.length - 1) {
+    } else if (pointer != i && nums[pointer] + nums[i] != target && i == nums.length - 1) {
       pointer++;
       exists = false;
     }
   }
 }
 console.log(output);
+
+// optimal approach using hashmap for O(n) time complexity
+
+function twoSum(nums, target) {
+    let map = new Map();
+  
+    for (let i = 0; i < nums.length; i++) {
+      let complement = target - nums[i];
+  
+      if (map.has(complement)) {
+        return [map.get(complement), i];
+      }
+  
+      map.set(nums[i], i);
+    }
+  }
+  
