@@ -25,3 +25,10 @@ for (let i = 0; i < merged.length; i++) {
 }
 merged.length = j
 console.log(merged);
+
+// better approach
+let merged = [...arr1, ...arr2];
+merged = merged.sort();
+merged = [...new Set(merged)];
+
+console.log(merged);
