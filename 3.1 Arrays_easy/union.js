@@ -32,3 +32,28 @@ merged = merged.sort();
 merged = [...new Set(merged)];
 
 console.log(merged);
+
+// later do this:
+// ### 🔍 Hint 1: Efficient Sorting
+// Instead of bubble sort, think of a more optimal **comparison-based sorting algorithm** you can write manually, such as:
+// - Starts by dividing the array
+// - Merges while sorting
+// - Has a time complexity of **O(N log N)**
+
+// ---
+
+// ### 🧠 Hint 2: Use an Object for Uniqueness
+// To remove duplicates **without using `Set`**, maintain a simple **object** to track seen values.  
+// - Keys will act like a set of seen numbers
+// - Add a value to the result only if it’s not already present in the object
+
+// ---
+
+// ### 🔁 Hint 3: Traverse Once
+// You can:
+// 1. Sort the merged array (with your custom sorting logic)
+// 2. Traverse it **once** to collect only **unique** values into a new array
+
+// ---
+
+// Let me know if you want hints to build the sort algorithm as well (like Merge Sort or Quick Sort) — we can tackle that next 💪
