@@ -28,3 +28,12 @@ else if (nums[0] != 0 && nums.length < 2) {
     console.log("3rd",missing);
 } else {
 }
+
+//optimal approach(O(n))
+let total = nums[0];
+let expectedSum = nums.length * (nums.length + 1) /2 // calculating expected sum of the array elements 
+for(let i=1;i<nums.length;i++){
+    total += nums[i] // calculating current sum of the array elements
+}
+
+console.log(expectedSum-total); //calculating missing element value by finding difference between expected and current sum's of the elements
