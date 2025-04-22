@@ -37,3 +37,18 @@ for(let i=1;i<nums.length;i++){
 }
 
 console.log(expectedSum-total); //calculating missing element value by finding difference between expected and current sum's of the elements
+
+// Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would 
+// be if it were inserted in order.
+let nums2 = [1,3,5,6]
+let target2 = 4
+let index = nums.length
+
+for(let i=0;i<nums2.length;i++){
+    if( target2 <= nums[i]){
+        index = i
+        break;
+    }
+}
+
+console.log("index",index);
