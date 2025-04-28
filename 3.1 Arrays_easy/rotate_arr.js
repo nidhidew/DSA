@@ -30,6 +30,23 @@ console.log(nums);
 
 //or
 
+//Brute force approach
+let arr3 = [1,2,3,4,5,6,7]
+let k3 = 2;
+let j = 0
+while(j<k){
+    let point = arr3[arr3.length-1]
+    for(let i=arr3.length-1;i>0;i--){
+        let swap = arr3[i-1];
+        arr3[i-1] = arr3[i-2];
+        arr3[i] = swap;
+    }
+    arr3[0] = point
+    j++;
+}
+console.log(arr3)
+//or
+
 // Optimal Approach
 function operate(array, steps) {
   let n = array.length;
