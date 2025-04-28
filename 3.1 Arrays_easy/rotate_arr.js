@@ -30,7 +30,7 @@ console.log(nums);
 
 //or
 
-//Brute force approach
+//Brute force approach for right side direction rotation
 let arr3 = [1,2,3,4,5,6,7]
 let k3 = 2;
 let j = 0
@@ -80,3 +80,19 @@ for(let i=1;i<arr.length;i++){
 arr[arr.length-1] = pointer;
 console.log(arr);
 
+//or
+
+let arr4 = [3,7,8,9,10,11]
+let k4 = 3;
+let j4 = 0
+while(j4<k4){
+    let point = arr4[0]
+    for(let i=1;i<arr4.length;i++){
+        let swap = arr4[i];
+        arr4[i] = arr4[i+1];
+        arr4[i-1] = swap;
+    }
+    arr4[arr4.length-1] = point
+    j++;
+}
+console.log(arr4)
