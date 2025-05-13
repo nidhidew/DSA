@@ -1,3 +1,4 @@
+// Given an array consisting of only 0s, 1s, and 2s. Write a program to in-place sort the array without using inbuilt sort functions.
 let arr = [2,0,2,1,1,0];
 let sorted = false;
 
