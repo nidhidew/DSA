@@ -17,6 +17,31 @@ for (let start = 0; start < n; start++) {
 }
 console.log(fs);
 
+let arr2 = [-2,-1];
+let subarr = []
+let sum = 0;
+let final = -Infinity;
+for(let i=0;i<arr2.length;i++){
+    let tempArr = [];
+    for(let j=i;j<arr2.length;j++){
+        tempArr.push(arr[j]);
+        subarr.push([...tempArr])
+    }
+}
+for(let i=0;i<subarr.length;i++){
+    let sumarr = subarr[i];
+    for(let k=0;k<sumarr.length;k++){
+        sum = sum+sumarr[k];
+    }
+    if(final < sum){
+        final = sum;
+        sum = 0;
+    }else{
+        sum = 0;
+    }
+}
+console.log(final)
+
 //optimal solution
 let maxsum = -Infinity;
 let currentsum = 0;
