@@ -23,6 +23,34 @@ while(!checked){
             checked = false;
         }
     }
-    
+}
+console.log(nums);
+
+// optimal approach
+let pos = [];
+let j = 0;
+let neg = [];
+let k = 0;
+let a = 0;
+let b = 0;
+for(let i=0;i<nums.length;i++){
+    if(nums[i] > 0){
+        pos[j] = nums[i];
+        j++;
+    }else if(nums[i] < 0){
+        neg[k] = nums[i];
+        k++;
+    }else{
+        
+    }
+}
+for(let i=0;i<nums.length;i++){
+    if(i%2 == 0){
+        nums[i] = pos[a];
+        a++;
+    }else if(i%2 != 0){
+        nums[i] = neg[b];
+        b++;
+    }
 }
 console.log(nums);
