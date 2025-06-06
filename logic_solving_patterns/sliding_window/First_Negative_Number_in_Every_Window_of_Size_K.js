@@ -45,34 +45,32 @@ for(let i=k;i<arr.length;i++){
 }
  console.log(negarr);
 
-// optimized solution (need to work on this later)
+// optimized solution
 
+let start=0;
+let count=0;
+let firstneg = [];
 // let negarr = [];
-let negIndexQueue = []; // store indexes of negative numbers
-
-// Process first k elements
-for (let i = 0; i < k; i++) {
-    if (arr[i] < 0) {
-        negIndexQueue.push(i); // store index of negative
+for(let end=0;end<arr.length;end++){
+    if(arr[end]<0){
+        firstneg.push(arr[end])
+    }
+    
+    if(end-start+1 === k ){
+        if(firstneg.length > 0){
+            negarr.push(firstneg[0])
+        }else{
+            negarr.push(0)
+        }
+        
+        if(arr[start] === firstneg[0]){
+            firstneg.shift();
+        }
+        start++;
+        // end=start-1;
+        // count++;
+        // negarr.push(0);
     }
 }
-// Push result for the first window
-negarr.push(negIndexQueue.length > 0 ? arr[negIndexQueue[0]] : 0);
-
-// Now slide the window
-for (let i = k; i < arr.length; i++) {
-    // Remove out-of-window index
-    if (negIndexQueue.length > 0 && negIndexQueue[0] <= i - k) {
-        negIndexQueue.shift();
-    }
-
-    // Add new negative number index
-    if (arr[i] < 0) {
-        negIndexQueue.push(i);
-    }
-
-    // Add result for current window
-    negarr.push(negIndexQueue.length > 0 ? arr[negIndexQueue[0]] : 0);
-}
-
-console.log(negarr);
+// count = 0
+console.log(negarr)
